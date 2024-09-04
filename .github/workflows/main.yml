@@ -10,5 +10,7 @@ jobs:
         with:
           node-version: "22"
           # You can also change 'lts' to any supported LTS Node.js version.
+      - run: yarn install
+      - run: yarn dev
       - run: npm install -g @testim/testim-cli
       - run: testim --token "tlZeKCZMSfRky0oCsII6xDP6mL9bLF606Rz4LKfD61anAD7KP2" --project "GLeyp3FVgMsEj1y4WSHz" --grid "Testim-Grid"
