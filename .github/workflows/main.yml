@@ -5,10 +5,19 @@ jobs:
   run-testimio-cli:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v4
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: "22"
-          # You can also change 'lts' to any supported LTS Node.js version.
-      - run: yarn install
-      - run: yarn testim
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Install Google Chrome
+        run: sudo apt-get update && sudo apt-get install -y google-chrome-stable
+
+      - name: Run Testim CLI
+        run: yarn testim
