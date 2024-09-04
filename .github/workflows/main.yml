@@ -22,5 +22,8 @@ jobs:
       - name: Install Chrome Driver
         run: sudo apt-get install -y chromium-chromedriver
 
+      - name: Set ChromeDriver Path
+        run: export PATH=$PATH:/usr/lib/chromium-browser/
+
       - name: Run Testim CLI
         run: yarn testim
